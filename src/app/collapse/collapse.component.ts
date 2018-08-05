@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterContentInit, Component, ContentChildren, OnInit, QueryList} from '@angular/core';
 
 @Component({
   selector: 'app-collapse',
   templateUrl: './collapse.component.html',
   styleUrls: ['./collapse.component.css']
 })
-export class CollapseComponent implements OnInit {
+export class CollapseComponent implements OnInit, AfterContentInit {
 
-  constructor() { }
+  @ContentChildren(CollapseComponent) collapseContentChildren: QueryList<CollapseComponent>;
+
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  ngAfterContentInit() {
+    console.log(this.collapseContentChildren.toArray());
   }
 
 }

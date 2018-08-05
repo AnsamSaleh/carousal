@@ -1,18 +1,17 @@
-import {OnInit, AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {OnInit, AfterViewInit, Component, ViewChild } from '@angular/core';
 import {CollapseComponent} from "./collapse/collapse.component";
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterViewInit, AfterContentInit{
+export class AppComponent implements OnInit, AfterViewInit{
   isCollapsed1:boolean;
   isCollapsed2:boolean;
   isCollapsed3:boolean;
   @ViewChild(CollapseComponent) collapseContentChild: string;
-  //@ContentChild(CollapseComponent) collapseContentChildren: string;
-  @ContentChildren(CollapseComponent) collapseContentChildren: QueryList<CollapseComponent>;
 
   constructor() {
     this.isCollapsed1 = true;
@@ -23,9 +22,6 @@ export class AppComponent implements OnInit, AfterViewInit, AfterContentInit{
   }
   ngAfterViewInit() {
     console.log(this.collapseContentChild);
-  }
-  ngAfterContentInit() {
-    console.log(this.collapseContentChildren.toArray());
   }
 
   toggleCollapse1() {

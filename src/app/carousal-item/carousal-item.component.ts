@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carousal-item.component.css']
 })
 export class CarousalItemComponent implements OnInit {
-
+  hidden: boolean = true;
+  toggleHidden() {
+    this.hidden = !this.hidden;
+  }
   constructor() { }
 
   ngOnInit() {

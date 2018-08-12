@@ -16,12 +16,13 @@ export class CarousalComponent implements OnInit, AfterContentInit {
   ngAfterContentInit() {
     this.items = this.carousalItem.toArray();
     this.items[0].toggleHidden();
-     ++this.currentIndex;
+    //++this.currentIndex;
     setInterval(() => {
       const length = this.items.length;
       this.items[this.currentIndex % length].toggleHidden();
       ++this.currentIndex;
       this.items[this.currentIndex % length].toggleHidden();
+
     }, this.delay)
   }
 
